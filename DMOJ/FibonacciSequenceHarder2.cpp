@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define long long long
-const long M = 1000000007;
+#define long unsigned long long
+#define M 1000000007
+// const long M = 1000000007;
 
 map<long, long> F;
+// vector<pair<long, long>> F;
 
 long f(long n)
 {
@@ -21,18 +23,6 @@ long f(long n)
     }
 }
 
-int mod(string num, int a)
-{
-    // Initialize result
-    int res = 0;
-
-    // One by one process all digits of 'num'
-    for (int i = 0; i < num.length(); i++)
-        res = (res * 10 + (int)num[i] - '0') % a;
-
-    return res;
-}
-
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -40,18 +30,18 @@ int main()
 
     string tar;
     cin >> tar;
+
+    // if (tar == "1")
+    //     cout << 1;
+    // else if (tar == "2147483647")
+    //     cout << 822963728;
+    // else
+    // {
+    long n = 0;
+    for (auto i = 0; i < tar.length(); i++)
+        n = (n * 10 + (int)tar[i] - '0') % 2000000016;
     F[0] = F[1] = 1;
-    if (tar == "1")
-    {
-        cout << 1;
-        return 0;
-    }
-    else if (tar == "2147483647")
-        cout << 822963728;
-
-    else
-        cout << f(mod(tar, 2000000016));
-    // cout << f(mod(tar, M));
-
+    cout << f(n - 1);
+    // }
     return 0;
 }
