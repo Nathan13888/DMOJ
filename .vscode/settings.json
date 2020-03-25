@@ -6,5 +6,8 @@
         "string_view": "cpp",
         "ostream": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Enabled"
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.exclude": {
+        "**/*.exe": true
+    }
 }
