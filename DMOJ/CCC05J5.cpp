@@ -3,6 +3,7 @@ using namespace std;
 
 int main()
 {
+    //TODO: finish and fix this
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
