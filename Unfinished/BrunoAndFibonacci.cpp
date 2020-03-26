@@ -4,7 +4,7 @@ using namespace std;
 int curFib = 0;
 int n_2, n_1 = 0, n = 1;
 
-int fib(int n)
+void fib(int n)
 {
     // * doesn't work if n is greater than curFib
     for (int k = 1; k <= n; k++)
@@ -13,7 +13,6 @@ int fib(int n)
         n_1 = n;
         n = n_2 + n_1;
     }
-    return n;
 }
 
 int main()
@@ -30,6 +29,8 @@ int main()
         cin >> c;
         if (c == 'A')
         {
+            if (i >= curFib)
+                fib(curFib + 1);
         }
     }
 
