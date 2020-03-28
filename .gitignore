@@ -1,3 +1,12 @@
+!*.cpp
+!*/
+*.*
+!.gitattributes
+!.gitignore
+!readme.md
+!.gitkeep
+tempCodeRunnerFile.cpp
+
 # Prerequisites
 *.d
 
