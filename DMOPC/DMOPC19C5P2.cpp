@@ -1,42 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//  dmoj.ca/problem/dmopc19c5p2/
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int N, H, chrl, enme;
+    int N, H, ply, opp;
     cin >> N >> H;
-    char m[N];
-    int d[N];
-    chrl = enme = H;
+    pair<char, int> data[N];
+    ply = opp = H;
     for (int i = 0; i < N; i++)
     {
-        cin >> m[i * 2] >> d[i * 2];
+        cin >> data[i * 2].first >> data[i * 2].second;
     }
     for (int i = 0; i < N; i++)
     {
-        cin >> m[i * 2 + 1] >> d[i * 2 + 1];
+        cin >> data[i * 2 + 1].first >> data[i * 2 + 1].second;
     }
-    for (int i = 0; i < N; i++)
+    int i = 0;
+    for (auto a : data)
     {
-        if (m[i] == 'A' && (m[i - 1] != 'D' || m - 1 > 0))
-            enme -= d[i];
-        else if (m[i + 1] == 'D' || i + 1 >= N)
-            chrl -= d[i];
+        if (a.first == 'A' && (data[i - 1].second != 'D' || i - 1 < 0))
+            opp -= a.second;
+        else if (data[i + 1].first == 'D' || i + 1 >= N)
+            ply -= a.second;
 
-        if (chrl < 0)
+        if (ply < 0)
         {
             cout << "DEFEAT";
             return 0;
         }
-        if (enme < 0)
+        if (opp < 0)
         {
             cout << "VICTORY";
             return 0;
         }
-        swap(chrl, enme);
+        swap(ply, opp);
+        i++;
     }
     cout << "TIE";
 
