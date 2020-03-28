@@ -1,18 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int curFib = 0;
-int n_2, n_1 = 0, n = 1;
-
-void fib(int n)
+bool isFib(int n)
 {
-    // * doesn't work if n is greater than curFib
-    for (int k = 1; k <= n; k++)
+    // Fib Nums from 0 to 500
+    int ok[] = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377};
+
+    for (int i : ok)
     {
-        n_2 = n_1;
-        n_1 = n;
-        n = n_2 + n_1;
+        if (i == n)
+            return true;
     }
+    return false;
 }
 
 int main()
@@ -23,16 +22,19 @@ int main()
     int N;
     cin >> N;
 
-    for (int i = 0; i < N; i++)
+    char c;
+    for (int i = 1; i <= N; i++)
     {
-        char c;
         cin >> c;
         if (c == 'A')
         {
-            if (i >= curFib)
-                fib(curFib + 1);
+            if (!isFib(i))
+            {
+                cout << "Bruno, GO TO SLEEP";
+                return 0;
+            }
         }
     }
-
+    cout << "That's quite the observation!";
     return 0;
 }
