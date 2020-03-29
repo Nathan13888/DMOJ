@@ -7,6 +7,10 @@
 # !.gitkeep
 tempCodeRunnerFile.cpp
 test.cpp
+# gets rid of files with no extensions
+*
+!/**/
+!*.*
 
 # Prerequisites
 *.d
