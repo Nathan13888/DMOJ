@@ -39,12 +39,12 @@ int main()
     for (pair<pair<int, int>, pair<int, int>> e : rec)
     {
         unsigned int newArea = abs((e.first.first - e.first.second) * (e.second.first - e.second.second));
-        cout << newArea;
+        printf("%i\n", area);
         if (newArea > area)
             area = newArea;
     }
 
-    printf("%i", area);
+    printf("%i\n", area);
 
     return 0;
 }
