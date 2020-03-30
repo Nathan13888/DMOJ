@@ -12,7 +12,7 @@ int main()
 {
     int N;
     scanf("%i", &N);
-
+    // sdasdas
     vector<Point> points;
     for (int i = 0; i < N; i++)
     {

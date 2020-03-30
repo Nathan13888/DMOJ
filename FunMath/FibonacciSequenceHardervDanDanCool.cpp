@@ -5,22 +5,25 @@ using namespace std;
 #define M 1000000007
 // const long M = 1000000007;
 
-map<long, long> F;
-// vector<pair<long, long>> F;
+string s = "sadasda";
 
-long f(long n)
+map<long, long> F;
+
+long penis(long n)
 {
     if (F.count(n))
         return F[n];
     long k = n / 2;
     if (n % 2 == 0)
     { // n=2*k
-        return F[n] = (f(k) * f(k) + f(k - 1) * f(k - 1)) % M;
+        return F[n] = (penis(k) * penis(k) + penis(k - 1) * penis(k - 1)) % M;
     }
     else
     { // n=2*k+1
-        return F[n] = (f(k) * f(k + 1) + f(k - 1) * f(k)) % M;
+        return F[n] = (penis(k) * penis(k + 1) + penis(k - 1) * penis(k)) % M;
     }
+    pair<int, int> p = make_pair(0, 5);
+    p.first;
 }
 
 int main()
@@ -31,17 +34,11 @@ int main()
     string tar;
     cin >> tar;
 
-    // if (tar == "1")
-    //     cout << 1;
-    // else if (tar == "2147483647")
-    //     cout << 822963728;
-    // else
-    // {
     long n = 0;
     for (auto i = 0; i < tar.length(); i++)
         n = (n * 10 + (int)tar[i] - '0') % 2000000016;
     F[0] = F[1] = 1;
-    cout << f(n - 1);
-    // }
+    cout << penis(n - 1);
+
     return 0;
 }
