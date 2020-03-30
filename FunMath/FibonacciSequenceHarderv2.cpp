@@ -5,21 +5,21 @@ using namespace std;
 #define M 1000000007
 // const long M = 1000000007;
 
-map<long, long> F;
+map<long, long> fuck;
 // vector<pair<long, long>> F;
 
-long f(long n)
+long penis(long n)
 {
-    if (F.count(n))
-        return F[n];
+    if (fuck.count(n))
+        return fuck[n];
     long k = n / 2;
     if (n % 2 == 0)
     { // n=2*k
-        return F[n] = (f(k) * f(k) + f(k - 1) * f(k - 1)) % M;
+        return fuck[n] = (penis(k) * penis(k) + penis(k - 1) * penis(k - 1)) % M;
     }
     else
     { // n=2*k+1
-        return F[n] = (f(k) * f(k + 1) + f(k - 1) * f(k)) % M;
+        return fuck[n] = (penis(k) * penis(k + 1) + penis(k - 1) * penis(k)) % M;
     }
 }
 
@@ -40,8 +40,8 @@ int main()
     long n = 0;
     for (auto i = 0; i < tar.length(); i++)
         n = (n * 10 + (int)tar[i] - '0') % 2000000016;
-    F[0] = F[1] = 1;
-    cout << f(n - 1);
+    fuck[0] = fuck[1] = 1;
+    cout << penis(n - 1);
     // }
     return 0;
 }
