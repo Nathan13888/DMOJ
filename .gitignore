@@ -7,9 +7,12 @@
 # !.gitkeep
 tempCodeRunnerFile.cpp
 test.cpp
-FibonacciSequenceHardervDanDanCool.cpp
-FibonacciSequenceHardervDanDanCool.exe
-FibonacciSequenceHardervDanDanCool*
+/**/FibonacciSequenceHardervDanDanCool.cpp
+/**/FibonacciSequenceHardervDanDanCool.exe
+/**/FibonacciSequenceHardervDanDanCool*
+FunMath/FibonacciSequenceHardervDanDanCool.cpp
+FunMath/FibonacciSequenceHardervDanDanCool.exe
+FunMath/FibonacciSequenceHardervDanDanCool*
 # gets rid of files with no extensions
 *
 !/**/
