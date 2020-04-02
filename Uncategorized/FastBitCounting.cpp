@@ -22,16 +22,16 @@ int setbits(ull n)
 //     return i & 0x3f;
 // }
 
-// int setbits(unsigned long long x)
-// {
-//     int count = 0;
-//     for (int i = 0; i < 64; i++)
-//     {
-//         if ((x & (1ull << i)) != 0)
-//             count++;
-//     }
-//     return count;
-// }
+int setbits(unsigned long long x)
+{
+    int count = 0;
+    for (int i = 0; i < 64; i++)
+    {
+        if ((x & (1ull << i)) != 0)
+            count++;
+    }
+    return count;
+}
 
 int main()
 {
