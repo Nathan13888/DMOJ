@@ -10,6 +10,8 @@ int setbits(ull n)
     return __builtin_popcountll(n);
 }
 
+// TODO: lookup chat
+
 // (uint_fast64_t)
 // return count(n >> 32 & 4294967295) + count(n & 4294967295);
 // inline int count(int i)
