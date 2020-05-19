@@ -50,12 +50,15 @@ int main()
             // do one less than N--
             while (--N)
             {
-                if (w > curW) // add 2 spaces to the left side of all the previous lines
+                if (w > curW)
+                { // add 2 spaces to the left side of all the previous lines
                     for (long unsigned int i = 0; i < lines.size(); i++)
                     {
                         for (int j = 0; j < w - curW; j++)
                             lines[0] = " " + lines[0];
                     }
+                    curW = max(curW, w);
+                }
 
                 int gap = curW - w;
                 // add torso
@@ -94,7 +97,7 @@ int main()
                     joint += " ";
                 }
                 // add Xs
-                for (int i = 0; i < (w - 1) * 2 - 1; i++)
+                for (int i = 0; i < (curW - 1) * 2 + 1; i++)
                 {
                     joint += "X";
                 }
@@ -103,8 +106,6 @@ int main()
 
                 h++;
                 w++;
-
-                curW = max(curW, w);
             }
             // Add the right hand to index 16
             lines[16] += "     M";
