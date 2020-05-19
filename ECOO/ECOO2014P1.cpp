@@ -2,8 +2,8 @@
 using namespace std;
 
 // https://dmoj.ca/problem/mockecoo14p1https://dmoj.ca/problem/mockecoo14p1
+
 vector<string> lines = {
-    // 16 lines here index 0-15
     "          |",
     "       \\  |  /",
     "        \\ | /",
@@ -22,10 +22,14 @@ vector<string> lines = {
     "     XXXXXXXXXXX    \\",
 };
 
+vector<string> model;
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
+
+    model = lines;
 
     int cases = 5;
 
@@ -46,19 +50,26 @@ int main()
             // do one less than N--
             while (--N)
             {
-                int gap = 0;
+                if (w > curW) // add 2 spaces to the left side of all the previous lines
+                    for (long unsigned int i = 0; i < lines.size(); i++)
+                    {
+                        for (int j = 0; j < w - curW; j++)
+                            lines[0] = " " + lines[0];
+                    }
+
+                int gap = curW - w;
                 // add torso
                 for (int x = 0; x < h; x++)
                 {
                     string tmp;
                     // add gap
-                    for (int i = 0; i < gap; i++)
+                    for (int i = x; i < gap; i++)
                     {
                         tmp += " ";
                     }
                     tmp += "X";
                     // add gap 2
-                    for (int i = 0; i < w - 1; i++)
+                    for (int i = 0; i < w + x - 1; i++)
                     {
                         tmp += " ";
                     }
@@ -68,11 +79,12 @@ int main()
                     else
                         tmp += "0";
                     // add gap 3
-                    for (int i = 0; i < w - 1; i++)
+                    for (int i = 0; i < w + x - 1; i++)
                     {
                         tmp += " ";
                     }
                     tmp += "X";
+                    lines.push_back(tmp);
                 }
                 // add joint
                 string joint;
@@ -87,14 +99,10 @@ int main()
                     joint += "X";
                 }
 
+                lines.push_back(joint);
+
                 h++;
                 w++;
-                if (w > curW) // add 2 spaces to the left side of all the previous lines
-                    for (long unsigned int i = 0; i < lines.size(); i++)
-                    {
-                        for (int j = 0; j < w - curW; j++)
-                            lines[0] = " " + lines[0];
-                    }
 
                 curW = max(curW, w);
             }
@@ -113,7 +121,11 @@ int main()
             cout << s << "\n";
 
         if (cases != 1)
+        {
             cout << "\n";
+            // RESET vector "lines"
+            lines = model;
+        }
     }
 
     return 0;
