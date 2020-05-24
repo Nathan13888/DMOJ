@@ -2,6 +2,9 @@
 
 Repo of Nathan's DMOJ Answers.
 
+DMOJ Account > https://dmoj.ca/user/NathanDoesDMOJ
+
+
 ### TODO
 
 *Stuff that I still have to finish*
