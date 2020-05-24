@@ -24,20 +24,41 @@ vector<string> lines = {
 
 vector<string> model;
 
-int h = 4, w = 5, curW = 10;
+string getGap(int width)
+{
+    string s;
+    while (width--)
+        s += " ";
+
+    return s;
+}
+
+string getXs(int width)
+{
+    string s;
+    while (width--)
+        s += "X";
+
+    return s;
+}
 
 void gen(int N)
 {
+    int h = 4, w = 5, curW = 10;
+
     // do one less than N--
     while (--N)
     {
-        if (w > curW) // add 2 spaces to the left side of all the previous lines
+        // add spaces to the left side of all the previous lines
+        if (w > curW)
             for (long unsigned int i = 0; i < lines.size(); i++)
             {
-                for (int j = 0; j < w - curW; j++)
-                    lines[0] = " " + lines[0];
+                string s = "";
+                for (int j = 0; j < curW - w; j++)
+                    s += " ";
+                lines[i] = s + lines[i];
             }
-        curW = max(curW, w);
+        curW = max(curW, w + h - 1);
 
         int gap = curW - w;
         // add torso
@@ -45,56 +66,42 @@ void gen(int N)
         {
             string tmp;
             // add gap
-            for (int i = x; i < gap; i++)
-            {
-                tmp += " ";
-            }
+            tmp += getGap(gap);
             tmp += "X";
             // add gap 2
-            for (int i = 0; i < w + x - 1; i++)
-            {
-                tmp += " ";
-            }
+            tmp += getGap(w + x - 1);
             // add button or not
             if (x == 0 || x == h - 1)
                 tmp += " ";
             else
                 tmp += "0";
             // add gap 3
-            for (int i = 0; i < w + x - 1; i++)
-            {
-                tmp += " ";
-            }
+            tmp += getGap(w + x - 1);
             tmp += "X";
             lines.push_back(tmp);
         }
-        // add joint
+        // S JOINT
         string joint;
-        // add gap
         for (int i = 0; i < gap + 1; i++)
-        {
             joint += " ";
-        }
-        // add Xs
-        for (int i = 0; i < (curW - 1) * 2 + 1; i++)
-        {
+        for (int i = 0; i < (w + 1) * 2 + 1; i++)
             joint += "X";
-        }
 
         lines.push_back(joint);
+        // E JOINT
 
         h++;
-        w++;
+        w += 2;
     }
+
     // Add the right hand to index 16
     lines[16] += "     M";
-    // Legs
-    int cnt = w - 4;
-    string gap2 = "";
-    while (cnt--)
-        gap2 += " ";
+
+    // S LEGS
+    string gap2 = getGap(w - 1);
     lines.push_back(gap2 + "OOOO OOOO");
     lines.push_back(gap2 + "OOOO OOOO");
+    // E LEGS
 }
 
 void run(int N)
@@ -115,16 +122,16 @@ void run(int N)
     lines = model;
 }
 
-void runTest() {
-    int Ns[] = {
-        1,3,5
-    };
+void runTest()
+{
+    vector<int> Ns = {1, 3, 5};
 
-    int count = 0;
+    long unsigned int count = 0;
 
-    for(int N:Ns){
+    for (int N : Ns)
+    {
         run(N);
-        if (++count != Ns.length())
+        if (++count != Ns.size())
             cout << "\n";
     }
 }
