@@ -6,7 +6,8 @@ typedef unsigned long long ull;
 int N;
 ull T;
 string in;
-vector<int> OLD(100001), NEW(100001);
+// vector<int> OLD(100001), NEW(100001);
+int OLD[100001], NEW[100001];
 
 // C_k[i]=C[i−k]⊕C[i+k]
 void calc(int k)
@@ -15,7 +16,9 @@ void calc(int k)
     int p2 = (N - p) % N;
     for (int i = 0; i < N; i++)
         NEW[i] = OLD[(i + p) % N] ^ OLD[(i + p2) % N];
-    OLD = NEW;
+    // OLD.swap(NEW);
+    for (int i = 0; i < N; i++)
+        OLD[i] = NEW[i];
 }
 
 int main()
