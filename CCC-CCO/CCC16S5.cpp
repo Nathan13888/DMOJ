@@ -8,6 +8,7 @@ ull T;
 string in;
 vector<int> OLD(100001), NEW(100001);
 
+// C_k[i]=C[i−k]⊕C[i+k]
 void calc(int k)
 {
     int p = (((ull)1) << k) % N;
@@ -24,16 +25,14 @@ int main()
 
     cin >> N >> T >> in;
 
+    // convert into 1s and 0s
     for (int i = 0; i < N; i++)
         OLD[i] = in[i] - '0';
-
+    // check for 1s
     for (int i = 49; i >= 0; i--)
         if ((T >> i) & 1)
             calc(i);
+    // output answer
     for (int i = 0; i < N; i++)
         cout << OLD[i];
-
-    cout << "\n";
-
-    return 0;
 }
