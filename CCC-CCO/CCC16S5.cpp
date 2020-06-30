@@ -3,32 +3,37 @@ using namespace std;
 
 typedef unsigned long long ull;
 
+int N;
+ull T;
+string in;
+vector<int> OLD(100001), NEW(100001);
+
+void calc(int k)
+{
+    int p = (((ull)1) << k) % N;
+    int p2 = (N - p) % N;
+    for (int i = 0; i < N; i++)
+        NEW[i] = OLD[(i + p) % N] ^ OLD[(i + p2) % N];
+    OLD = NEW;
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
 
-    int N, T;
-    string comb;
-    cin >> N >> T >> comb;
-    while (T--)
-    {
-        string tmp;
-        for (int i = 0; i < N; i++)
-            tmp += "0";
-        // for front
-        if (comb[1] != comb[N - 1])
-            tmp[0] = '1';
-        // for everything in between
-        for (int i = 1; i < N - 1; i++)
-            if (comb[i - 1] != comb[i + 1])
-                tmp[i] = '1';
-        // for back
-        if (comb[0] != comb[N - 2])
-            tmp[N - 1] = '1';
-        comb = tmp;
-    }
-    cout << comb << "\n";
+    cin >> N >> T >> in;
+
+    for (int i = 0; i < N; i++)
+        OLD[i] = in[i] - '0';
+
+    for (int i = 49; i >= 0; i--)
+        if ((T >> i) & 1)
+            calc(i);
+    for (int i = 0; i < N; i++)
+        cout << OLD[i];
+
+    cout << "\n";
 
     return 0;
 }
