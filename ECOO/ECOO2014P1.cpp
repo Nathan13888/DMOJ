@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-// https://dmoj.ca/problem/mockecoo14p1https://dmoj.ca/problem/mockecoo14p1
+// https://dmoj.ca/problem/mockecoo14p1
 
 vector<string> lines = {
     "          |",
@@ -124,14 +124,17 @@ void run(int N)
 
 void runTest()
 {
-    vector<int> Ns = {1, 3, 5};
+    // vector<int> Ns = {1, 3, 5};
 
     long unsigned int count = 0;
 
-    for (int N : Ns)
+    // for (int N : Ns)
+    for(int i = 1; i<=10;i++)
     {
-        run(N);
-        if (++count != Ns.size())
+        // run(N);
+        run(i);
+        // if (++count != Ns.size())
+        if (++count != 10)
             cout << "\n";
     }
 }
