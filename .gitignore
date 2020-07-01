@@ -1,3 +1,7 @@
+# gets rid of files with no extensions
+*
+!/**/
+!*.*
 # !*.cpp
 # !*/
 # *.*
@@ -5,20 +9,22 @@
 # !.gitignore
 # !readme.md
 # !.gitkeep
+
+# ignore .txt files
+*.txt
+
 tempCodeRunnerFile.cpp
 /**/tempCodeRunnerFile.cpp
 test.cpp
+
 /**/FibonacciSequenceHardervDanDanCool.cpp
 /**/FibonacciSequenceHardervDanDanCool.exe
 /**/FibonacciSequenceHardervDanDanCool*
 FunMath/FibonacciSequenceHardervDanDanCool.cpp
 FunMath/FibonacciSequenceHardervDanDanCool.exe
 FunMath/FibonacciSequenceHardervDanDanCool*
-*.txt
-# gets rid of files with no extensions
-*
-!/**/
-!*.*
+
+ECOO/ECOO2014P1Cases
 
 # Prerequisites
 *.d
