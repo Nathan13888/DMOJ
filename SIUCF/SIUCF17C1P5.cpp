@@ -29,18 +29,9 @@ int main()
     ull a, b, n;
     cin >> a >> b >> n;
 
-    switch (n)
-    {
-    case 0:
-        cout << a;
-        break;
-    case 1:
-        cout << b;
-        break;
-    default:
-        F[0] = F[1] = 1;
-        cout << (b % M * f(n - 1) % M + a % M * f(n - 2) % M) % M;
-    }
+    F[0] = F[1] = 1;
+
+    cout << (n == 0 ? a : n == 1 ? b : ((b % M * f(n - 1) % M + a % M * f(n - 2) % M) % M));
 
     return 0;
 }
