@@ -14,6 +14,7 @@ test.cpp
 FunMath/FibonacciSequenceHardervDanDanCool.cpp
 FunMath/FibonacciSequenceHardervDanDanCool.exe
 FunMath/FibonacciSequenceHardervDanDanCool*
+*.txt
 # gets rid of files with no extensions
 *
 !/**/
