@@ -1,7 +1,3 @@
-# test files
-*.cin
-*.cerr
-
 .vscode
 
 # gets rid of files with no extensions
@@ -15,6 +11,10 @@
 # !.gitignore
 # !readme.md
 # !.gitkeep
+
+# test files
+*.cin
+*.cerr
 
 # ignore .txt files
 *.txt
