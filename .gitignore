@@ -1,3 +1,9 @@
+# test files
+*.cin
+*.cerr
+
+.vscode
+
 # gets rid of files with no extensions
 *
 !/**/
