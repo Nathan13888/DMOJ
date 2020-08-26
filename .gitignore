@@ -1,5 +1,3 @@
-.vscode
-
 # gets rid of files with no extensions
 *
 !/**/
@@ -11,6 +9,8 @@
 # !.gitignore
 # !readme.md
 # !.gitkeep
+
+.vscode
 
 # test files
 *.cin
