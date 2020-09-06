@@ -16,6 +16,10 @@
 
 .vscode
 
+# ECLIPSE
+.metadata
+.project
+
 # test files
 *.cin
 *.cerr
