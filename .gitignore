@@ -19,6 +19,7 @@
 # ECLIPSE
 .metadata
 .project
+.classpath
 
 # test files
 *.cin
