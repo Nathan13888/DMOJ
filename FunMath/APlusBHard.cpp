@@ -104,22 +104,19 @@ int main()
         if (a[0] == '-' && b[0] == '-')
         {
             neg = true;
-            a = a.substr(1);
-            b = b.substr(1);
-            res = sum(a, b);
+            res = sum(a.substr(1), b.substr(1));
         }
         else if (a[0] == '-')
         {
             a = a.substr(1);
-            if (a > b)
+            if (isSmaller(b, a))
                 neg = true;
-
             res = diff(a, b);
         }
         else if (b[0] == '-')
         {
             b = b.substr(1);
-            if (b > a)
+            if (isSmaller(a, b))
                 neg = true;
             res = diff(a, b);
         }
